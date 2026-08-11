@@ -39,6 +39,16 @@ and accessibility-focused development practices.
 - Descriptive link text
 - Responsive viewport meta tag
 
+## Task 2 Update
+
+The `task2/` folder now contains the Task 2 portfolio implementation, including:
+
+- Responsive CSS with CSS Grid/Flex layout and mobile-first design.
+- Dark/light theme support with a persistent toggle.
+- Updated page visuals, accessible headings, and improved spacing.
+- A PowerShell preview helper at `task2/scripts/preview.ps1`.
+- `task2/README.md` with project summary and preview instructions.
+
 ## Run in VS Code
 
 1. Open the project folder in Visual Studio Code.
