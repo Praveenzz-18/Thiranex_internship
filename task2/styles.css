@@ -1,0 +1,140 @@
+:root{
+  --bg: #ffffff;
+  --panel: #f7f8fb;
+  --text: #0b1220;
+  --muted: #5b6b7a;
+  --accent: #2b6ef6;
+  --success: #1aa56c;
+  --radius: 10px;
+  --gap: 1rem;
+}
+
+[data-theme="dark"]{
+  --bg: #0b1220;
+  --panel: #0f1724;
+  --text: #e6eef8;
+  --muted: #9fb0c8;
+  --accent: #4ea1ff;
+}
+
+/* Mobile-first base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:var(--accent)}
+
+header{
+  background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.02) 100%);
+  padding:1rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  justify-content:space-between;
+}
+
+header h1{margin:0;font-size:1.125rem}
+
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:0.75rem}
+nav a{padding:0.35rem 0.5rem;border-radius:6px;text-decoration:none;color:var(--text);}
+nav a[aria-current]{font-weight:600}
+
+#theme-toggle{background:var(--accent);color:white;border:0;padding:0.4rem 0.6rem;border-radius:6px;cursor:pointer}
+
+/* Center site content and provide max-width */
+header, main, footer{max-width:1100px;margin:0 auto;padding:0 1rem}
+
+/* Button variants */
+.btn{display:inline-block;padding:0.5rem 0.75rem;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer;font-weight:600}
+.btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(11,18,32,0.06)}
+
+/* Card polish */
+article{background:var(--panel);padding:1rem;border-radius:var(--radius);box-shadow:0 6px 12px rgba(2,6,23,0.04);transition:transform .18s ease,box-shadow .18s ease}
+article:focus-within,article:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(2,6,23,0.06)}
+
+/* Improve nav on small screens */
+@media(max-width:719px){
+  nav ul{flex-wrap:wrap;gap:0.5rem}
+}
+
+/* Stack header items on very small screens for better spacing */
+@media(max-width:520px){
+  header{flex-direction:column;align-items:flex-start;row-gap:0.6rem}
+  #theme-toggle{align-self:flex-end}
+}
+
+/* Form spacing and helpers */
+form p{margin-bottom:0.75rem}
+form fieldset{border:0;padding:0;margin:0 0 1rem 0}
+form legend{font-weight:700;margin-bottom:0.5rem}
+
+/* Input focus for accessibility */
+input:focus,textarea:focus,select:focus,button:focus{outline:3px solid color-mix(in srgb, var(--accent) 25%, transparent);outline-offset:2px}
+
+/* Footer small print */
+footer{padding:1.25rem 0;color:var(--muted);font-size:0.95rem}
+
+/* Animations */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:none}
+}
+
+article{animation:fadeUp .42s ease both}
+article:nth-of-type(2){animation-delay:0.04s}
+article:nth-of-type(3){animation-delay:0.08s}
+
+/* Button interactions */
+.btn{transition:transform .16s ease, box-shadow .16s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(43,110,246,0.12)}
+
+/* Contact form: two-column layout on wide screens */
+@media(min-width:900px){
+  form fieldset:first-of-type{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  form fieldset:first-of-type p:nth-child(3){grid-column:1/-1}
+  form fieldset:nth-of-type(2){display:grid;grid-template-columns:1fr;}
+  form > button{margin-right:0.5rem}
+}
+
+/* Smooth input transitions */
+input,textarea,select{transition:box-shadow .12s ease,border-color .12s ease}
+
+
+
+main{padding:1rem;display:grid;gap:var(--gap)}
+
+/* Simple two-column layout on wider screens */
+@media(min-width:720px){
+  main{grid-template-columns:1fr 320px}
+  aside{grid-column:2}
+}
+
+/* Featured projects grid */
+section[aria-labelledby="featured-projects-heading"]{display:grid;gap:1rem}
+article{background:var(--panel);padding:1rem;border-radius:var(--radius);box-shadow:0 1px 0 rgba(0,0,0,0.02)}
+
+/* Projects listing: grid cards */
+@media(min-width:900px){
+  section[aria-labelledby="project-list-heading"]{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+}
+
+/* Form styles */
+form input,form textarea,form select{width:100%;padding:0.5rem;border-radius:6px;border:1px solid rgba(11,18,32,0.08);background:transparent;color:var(--text)}
+form label{font-weight:600}
+button[type="submit"],button[type="reset"]{background:var(--accent);color:white;border:0;padding:0.6rem 0.9rem;border-radius:8px}
+
+/* Accessibility helpers */
+a.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+a.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:0.5rem;background:var(--panel);border-radius:6px}
+
+/* Small utility spacing for wide layouts */
+@media(min-width:1100px){
+  body{font-size:1rem}
+}
