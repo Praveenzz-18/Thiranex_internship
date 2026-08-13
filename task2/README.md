@@ -1,37 +1,50 @@
-# Task 2 Portfolio
+# Task 3 — To‑Do App (Task 3 deliverable)
 
-This folder contains the Task 2 version of the internship portfolio project.
+This folder now contains the Task 3 To‑Do application implemented as an interactive, client‑side web app that demonstrates DOM manipulation, event handling, state management, and data persistence.
 
-## What is included
+Open the To‑Do app in your browser:
 
-- `index.html` — home page with introduction, skills, featured projects, and learning summary.
-- `about.html` — profile, education, strengths, and goals.
-- `projects.html` — detailed project descriptions for Agrinex Weather and Army Convoys Pulse.
-- `contact.html` — accessible contact form with validation and message flow.
-- `thank-you.html` — submission confirmation page.
-- `styles.css` — mobile-first responsive styling with CSS Grid/Flex, card layouts, and dark/light theme variables.
+- `todo.html` — full To‑Do application UI and interaction.
+
+Other important files:
+
+- `scripts/todo.js` — application logic: full CRUD (Create, Read, Update, Delete), localStorage persistence, filtering (All / Active / Completed), inline editing, import/export, and drag‑and‑drop reordering.
+- `styles.css` — styles and UI polish for the To‑Do page (animations, responsive layout, accessible focus states).
 - `scripts/theme-toggle.js` — theme toggle that persists the user's preference using `localStorage`.
 - `scripts/preview.ps1` — PowerShell helper script to run a local preview server and open the browser.
-- `README_PREVIEW.md` — local preview instructions for Python and PowerShell.
 
-## Highlights
+Key features implemented (Task 3 requirements):
 
-- Mobile-first responsive design with layout adjustments at `720px` and `900px`.
-- Modern CSS styling using custom properties and subtle transitions.
-- Dark mode support with a theme toggle button.
-- Improved accessibility and focus styling.
+- Full CRUD: add, list, edit (inline), toggle complete, delete tasks.
+- Persistence: tasks are saved to `localStorage` under key `todo.tasks.v1` and retained across reloads.
+- Filtering: All, Active, Completed with accessible `aria-pressed` states.
+- Dynamic DOM and delegated event handlers used for performance and simplicity.
+- Advanced UX: optional due dates, overdue highlighting, empty‑state messaging, entry animations.
+- Import/Export: download and upload tasks as JSON (`tasks.json`).
+- Reordering: drag‑and‑drop to reorder tasks; order is persisted.
+- Accessibility: focus styles, keyboard editing (Enter to save), and ARIA attributes where appropriate.
 
-## Preview locally
+How to preview locally
 
-Open PowerShell in this folder and run:
+PowerShell:
 
 ```powershell
 .\scripts\preview.ps1
 ```
 
-Or use Python directly:
+Or with Python:
 
 ```powershell
 python -m http.server 8000
-start http://localhost:8000
+start http://localhost:8000/todo.html
 ```
+
+Usage notes
+
+- Add a new task using the input at the top; optionally choose a due date before submitting.
+- Double‑click a task label to edit inline, press Enter or click away to save.
+- Use the filter buttons to switch views and the "Clear completed" button to remove completed tasks.
+- Use "Export" to download your tasks and "Import" to load tasks from a previously exported JSON file.
+- Drag tasks to reorder them; the order is saved automatically.
+
+If you'd like additional features (priority, reminders, keyboard shortcuts, or integration with a backend), tell me which one to add next.
